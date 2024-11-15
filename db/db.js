@@ -1,6 +1,11 @@
-const mongoose = require('moongoose')
-const uri = 'mongodb://richbaxter:Equipo1!!!@cluster0.byvg0.mongodb.net/available-sites'
-mongoose.connect(uri, {useNewParser:true, useUnifiedTopology:true})
-const conexion = mongoose.connection
+const mongoose = require('mongoose')
+const udbURL = 'mongodb+srv://richbaxter:Equipo1!!!@cluster0.byvg0.mongodb.net/available-sites'
 
-module.exports = conexion
+module.exports = async () => {
+    try {
+      await mongoose.connect(dbURL, {});
+      console.log("CONNECTED TO DATABASE SUCCESSFULLY");
+    } catch (error) {
+      console.log('COULD NOT CONNECT TO DATABASE:', error.message);
+    }
+};
